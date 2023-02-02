@@ -56,6 +56,8 @@ function sha256(message) {
  * @returns {Promise<any>}
  */
 async function getConfig() {
-  const response = await fetch(`https://${AUTH0_DOMAIN}/.well-known/openid-configuration`);
+  let input = `http://${AUTH0_DOMAIN}/.well-known/openid-configuration`;
+  console.info("Requesting config from ", input)
+  const response = await fetch(input);
   return response.json();
 }
